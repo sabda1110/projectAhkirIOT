@@ -1,0 +1,24 @@
+<div class="container-dataTesting">
+  <table class="table table-dataTesting">
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Penghasilan</th>
+        <th scope="col">Aset</th>
+        <th scope="col">Pengeluaran</th>
+        <th scope="col">Status Masyarakat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% penduduk.forEach((item,i )=> { i++ %>
+      <tr>
+        <th scope="row"><%=i%></th>
+        <td><%=item.penghasilan%></td>
+        <td><%=item.aset%></td>
+        <td><%=item.pengeluaran%></td>
+        <td><%=item.statusMasyarakat%></td>
+      </tr>
+      <%})%>
+    </tbody>
+  </table>
+</div>
