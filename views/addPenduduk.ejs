@@ -29,27 +29,40 @@
         <div class="right">
           <div class="right-contain">
             <h2>Inputan Kekayaan</h2>
-            <form action="">
+            <form action="/dataTesting" method="post">
               <input
                 type="number"
+                class="penghasilan"
                 name="penghasilan"
                 id="penghasilan"
                 placeholder="Penghasilan"
+                aria-describedby="penghasilan"
               />
-              <input type="number" name="aset" id="aset" placeholder="Aset" />
+              <input
+                type="number"
+                name="aset"
+                id="aset"
+                placeholder="Aset"
+                class="aset"
+                aria-describedby="aset"
+              />
               <input
                 type="number"
                 name="pengeluaran"
+                class="pengeluaran"
                 id="pengeluaran"
                 placeholder="Pengeluaran"
+                aria-describedby="pengeluaran"
               />
               <input
                 type="text"
-                name="status_masyarakat"
+                class="status_masyarakat"
+                name="statusMasyarakat"
                 id="status_masyarakat"
                 placeholder="Status Masyarakat"
+                aria-describedby="status_masyarakat"
               />
-              <button>Kirim</button>
+              <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
           </div>
         </div>
