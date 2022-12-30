@@ -3,6 +3,7 @@ const expressLayout = require('express-ejs-layouts');
 const metodeKNN = require('./utils/script');
 require('./utils/db');
 const Penduduk = require('./model/penduduk');
+const { response } = require('express');
 const app = express();
 const port = 3000;
 
@@ -14,13 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Halaman Awal Bro',
-    layout: 'layouts/main-layouts'
-  });
-});
-
-app.get('/about', (req, res) => {
-  res.render('about', {
-    title: 'Halaman About',
     layout: 'layouts/main-layouts'
   });
 });
@@ -49,6 +43,32 @@ app.get('/add_penduduk', async (req, res) => {
   });
 });
 
+app.get('/admin', async (req, res) => {
+  const jumlahMasyarakat = await Penduduk.find().count();
+  const jumlahMiskin = await Penduduk.find({
+    statusMasyarakat: 'miskin'
+  }).count();
+  const jumlahSedang = await Penduduk.find({
+    statusMasyarakat: 'sedang'
+  }).count();
+  const jumlahKaya = await Penduduk.find({
+    statusMasyarakat: 'kaya'
+  }).count();
+  res.render('admin', {
+    layout: 'admin.ejs',
+    jumlahMasyarakat,
+    jumlahMiskin,
+    jumlahKaya,
+    jumlahSedang
+  });
+});
+
+app.get('/login', (req, res) => {
+  res.render('login', {
+    layout: 'login.ejs'
+  });
+});
+
 app.post('/dataTesting', async (req, res) => {
   const penduduk = await Penduduk.find();
   const dataHasil = metodeKNN(penduduk, req.body);
@@ -57,6 +77,15 @@ app.post('/dataTesting', async (req, res) => {
   // Penduduk.insertMany(req.body, (err, result) => {
   //   res.redirect('/dataTesting');
   // });
+});
+
+app.post('/loginData', (req, res) => {
+  const data = req.body;
+  if (data['email'] == 'admin@gmail.com' && data['password'] == 'admin') {
+    res.redirect('/admin');
+  } else {
+    res.send('Password Salah');
+  }
 });
 
 app.listen(port, () => {
