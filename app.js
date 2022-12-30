@@ -1,6 +1,6 @@
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
-
+const metodeKNN = require('./utils/script');
 require('./utils/db');
 const Penduduk = require('./model/penduduk');
 const app = express();
@@ -49,10 +49,14 @@ app.get('/add_penduduk', async (req, res) => {
   });
 });
 
-app.post('/dataTesting', (req, res) => {
-  Penduduk.insertMany(req.body, (err, result) => {
-    res.redirect('/dataTesting');
-  });
+app.post('/dataTesting', async (req, res) => {
+  const penduduk = await Penduduk.find();
+  const dataHasil = metodeKNN(penduduk, req.body);
+  console.log(dataHasil);
+
+  // Penduduk.insertMany(req.body, (err, result) => {
+  //   res.redirect('/dataTesting');
+  // });
 });
 
 app.listen(port, () => {
