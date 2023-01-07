@@ -16,6 +16,10 @@ const Penduduk = mongoose.model('Penduduk', {
   },
   statusMasyarakat: {
     type: String
+  },
+  kelurahan: {
+    type: String,
+    require: true
   }
 });
 

@@ -69,7 +69,7 @@
           </div>
         </div>
         <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-        <a class="btn btn-primary btn-sm mb-0 w-100" href="https://www.creative-tim.com/product/argon-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+       
       </div>
     </aside>
     <main class="main-content position-relative border-radius-lg ">
@@ -304,7 +304,7 @@
             <div class="card ">
               <div class="card-header pb-0 p-3">
                 <div class="d-flex justify-content-between">
-                  <h6 class="mb-2">Sales by Country</h6>
+                  <h6 class="mb-2">Presentase Kemiskinan Kecamatan Kediri</h6>
                 </div>
               </div>
               <div class="table-responsive">
@@ -313,128 +313,150 @@
                     <tr>
                       <td class="w-30">
                         <div class="d-flex px-2 py-1 align-items-center">
-                          <div>
-                            <img src="./assets/img/icons/flags/US.png" alt="Country flag">
-                          </div>
+                          
                           <div class="ms-4">
-                            <p class="text-xs font-weight-bold mb-0">Kecamatan:</p>
-                            <h6 class="text-sm mb-0">Tenayan Raya</h6>
+                            <p class="text-xs font-weight-bold mb-0">Kelurahan:</p>
+                            <h6 class="text-sm mb-0">Bobang</h6>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
                           <p class="text-xs font-weight-bold mb-0">Jumlah Masyarakat::</p>
-                          <h6 class="text-sm mb-0"><%=jumlahMasyarakat%></h6>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatBobang%></h6>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
                           <p class="text-xs font-weight-bold mb-0">Jumlah Miskin:</p>
-                          <h6 class="text-sm mb-0"><%=jumlahMiskin%></h6>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatMiskinBobang%></h6>
                         </div>
                       </td>
                       <td class="align-middle text-sm">
                         <div class="col text-center">
                           <p class="text-xs font-weight-bold mb-0">Bounce:</p>
                           
-                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMiskin/jumlahMasyarakat ) * 100)%> %</h6>
+                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMasyarakatMiskinBobang/jumlahMasyarakat ) * 100)%> %</h6>
                         </div>
                       </td>
                     </tr>
                     <tr>
                       <td class="w-30">
                         <div class="d-flex px-2 py-1 align-items-center">
-                          <div>
-                            <img src="./assets/img/icons/flags/DE.png" alt="Country flag">
-                          </div>
+                       
                           <div class="ms-4">
-                            <p class="text-xs font-weight-bold mb-0">Country:</p>
-                            <h6 class="text-sm mb-0">Tenayan Raya</h6>
+                            <p class="text-xs font-weight-bold mb-0">Kelurahan:</p>
+                            <h6 class="text-sm mb-0">Bulu</h6>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
                           <p class="text-xs font-weight-bold mb-0">Jumlah Masyarakat:</p>
-                          <h6 class="text-sm mb-0">3.900</h6>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatBulu%></h6>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Miskin:</p>
-                          <h6 class="text-sm mb-0">$440,000</h6>
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Miskin:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatMiskinBulu%></h6>
                         </div>
                       </td>
                       <td class="align-middle text-sm">
                         <div class="col text-center">
                           <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                          <h6 class="text-sm mb-0">40.22%</h6>
+                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMasyarakatMiskinBulu/jumlahMasyarakat ) * 100)%> %</h6>
                         </div>
                       </td>
                     </tr>
                     <tr>
                       <td class="w-30">
                         <div class="d-flex px-2 py-1 align-items-center">
-                          <div>
-                            <img src="./assets/img/icons/flags/GB.png" alt="Country flag">
-                          </div>
+                       
                           <div class="ms-4">
-                            <p class="text-xs font-weight-bold mb-0">Country:</p>
-                            <h6 class="text-sm mb-0">Great Britain</h6>
+                            <p class="text-xs font-weight-bold mb-0">Kelurahan:</p>
+                            <h6 class="text-sm mb-0">Pagung</h6>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                          <h6 class="text-sm mb-0">1.400</h6>
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Masyarakat:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatPagung%></h6>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Value:</p>
-                          <h6 class="text-sm mb-0">$190,700</h6>
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Miskin:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatMiskinPagung%></h6>
                         </div>
                       </td>
                       <td class="align-middle text-sm">
                         <div class="col text-center">
                           <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                          <h6 class="text-sm mb-0">23.44%</h6>
+                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMasyarakatMiskinPagung/jumlahMasyarakat ) * 100)%> %</h6>
                         </div>
                       </td>
                     </tr>
                     <tr>
                       <td class="w-30">
                         <div class="d-flex px-2 py-1 align-items-center">
-                          <div>
-                            <img src="./assets/img/icons/flags/BR.png" alt="Country flag">
-                          </div>
+                      
                           <div class="ms-4">
-                            <p class="text-xs font-weight-bold mb-0">Country:</p>
-                            <h6 class="text-sm mb-0">Brasil</h6>
+                            <p class="text-xs font-weight-bold mb-0">Kelurahan:</p>
+                            <h6 class="text-sm mb-0">Kanyoran</h6>
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Sales:</p>
-                          <h6 class="text-sm mb-0">562</h6>
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Masyarakat:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatKanyoran%></h6>
                         </div>
                       </td>
                       <td>
                         <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Value:</p>
-                          <h6 class="text-sm mb-0">$143,960</h6>
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Miskin:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatMiskinKanyoran%></h6>
                         </div>
                       </td>
                       <td class="align-middle text-sm">
                         <div class="col text-center">
                           <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                          <h6 class="text-sm mb-0">32.14%</h6>
+                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMasyarakatMiskinKanyoran/jumlahMasyarakat ) * 100)%> %</h6>
                         </div>
                       </td>
                     </tr>
+                    <tr>
+                      <td class="w-30">
+                        <div class="d-flex px-2 py-1 align-items-center">
+                          
+                          <div class="ms-4">
+                            <p class="text-xs font-weight-bold mb-0">Kelurahan:</p>
+                            <h6 class="text-sm mb-0">Joho</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Masyarakat:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatJoho%></h6>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <p class="text-xs font-weight-bold mb-0">Jumlah Miskin:</p>
+                          <h6 class="text-sm mb-0"><%=jumlahMasyarakatMiskinJoho%></h6>
+                        </div>
+                      </td>
+                      <td class="align-middle text-sm">
+                        <div class="col text-center">
+                          <p class="text-xs font-weight-bold mb-0">Bounce:</p>
+                          <h6 class="text-sm mb-0"><%=Math.round((jumlahMasyarakatMiskinJoho/jumlahMasyarakat ) * 100)%> %</h6>
+                        </div>
+                      </td>
+                    </tr>
+                    
                   </tbody>
                 </table>
               </div>

@@ -1,6 +1,10 @@
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
-const metodeKNN = require('./utils/script');
+const {
+  metodeKNN,
+  jumlahMasyarakatKelurahan,
+  jumlahMasyarakatMiskinKelurahan
+} = require('./utils/script');
 require('./utils/db');
 const Penduduk = require('./model/penduduk');
 const { response } = require('express');
@@ -23,8 +27,8 @@ app.get('/dataTesting', async (req, res) => {
   const jumlahData = await Penduduk.countDocuments();
   const jumlahDataPerhalaman = 10;
   const jumlahHalaman = Math.ceil(jumlahData / jumlahDataPerhalaman);
-
   const page = req.query.page || 0;
+  let currentPage = parseInt(page);
   const penduduk = await Penduduk.find()
     .skip(page * jumlahDataPerhalaman)
     .limit(jumlahDataPerhalaman);
@@ -32,7 +36,8 @@ app.get('/dataTesting', async (req, res) => {
     title: 'Data Testing',
     layout: 'layouts/main-layouts',
     penduduk,
-    jumlahHalaman
+    jumlahHalaman,
+    currentPage
   });
 });
 
@@ -54,12 +59,46 @@ app.get('/admin', async (req, res) => {
   const jumlahKaya = await Penduduk.find({
     statusMasyarakat: 'kaya'
   }).count();
+
+  const jumlahMasyarakatPagung = await jumlahMasyarakatKelurahan('pagung');
+
+  const jumlahMasyarakatBobang = await jumlahMasyarakatKelurahan('bobang');
+  const jumlahMasyarakatBulu = await jumlahMasyarakatKelurahan('bulu');
+  const jumlahMasyarakatKanyoran = await jumlahMasyarakatKelurahan('kanyoran');
+  const jumlahMasyarakatJoho = await jumlahMasyarakatKelurahan('joho');
+
+  const jumlahMasyarakatMiskinPagung = await jumlahMasyarakatMiskinKelurahan(
+    'pagung'
+  );
+  const jumlahMasyarakatMiskinBobang = await jumlahMasyarakatMiskinKelurahan(
+    'bobang'
+  );
+  const jumlahMasyarakatMiskinBulu = await jumlahMasyarakatMiskinKelurahan(
+    'bulu'
+  );
+  const jumlahMasyarakatMiskinKanyoran = await jumlahMasyarakatMiskinKelurahan(
+    'kanyoran'
+  );
+  const jumlahMasyarakatMiskinJoho = await jumlahMasyarakatMiskinKelurahan(
+    'joho'
+  );
+
   res.render('admin', {
     layout: 'admin.ejs',
     jumlahMasyarakat,
     jumlahMiskin,
     jumlahKaya,
-    jumlahSedang
+    jumlahSedang,
+    jumlahMasyarakatBobang,
+    jumlahMasyarakatBulu,
+    jumlahMasyarakatPagung,
+    jumlahMasyarakatKanyoran,
+    jumlahMasyarakatJoho,
+    jumlahMasyarakatMiskinPagung,
+    jumlahMasyarakatMiskinBobang,
+    jumlahMasyarakatMiskinBulu,
+    jumlahMasyarakatMiskinKanyoran,
+    jumlahMasyarakatMiskinJoho
   });
 });
 

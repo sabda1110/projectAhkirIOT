@@ -1,3 +1,20 @@
+const mongoose = require('mongoose');
+require('./db');
+const Penduduk = require('../model/penduduk');
+
+async function jumlahMasyarakatKelurahan(data) {
+  const jumlah = await Penduduk.find({ kelurahan: data }).count();
+  return jumlah;
+}
+
+async function jumlahMasyarakatMiskinKelurahan(desa) {
+  const jumlah = await Penduduk.find({
+    statusMasyarakat: 'miskin',
+    kelurahan: desa
+  }).count();
+  return jumlah;
+}
+
 function metodeKNN(dataTes, dataUji) {
   const dataPenghasilan = [];
   const dataAset = [];
@@ -88,4 +105,8 @@ function metodeKNN(dataTes, dataUji) {
   return dataHasil;
 }
 
-module.exports = metodeKNN;
+module.exports = {
+  metodeKNN,
+  jumlahMasyarakatKelurahan,
+  jumlahMasyarakatMiskinKelurahan
+};
